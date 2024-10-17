@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Værktøjskasse</title>
+</head>
+<body>
+    
+    <div id="app"></div>
+
+
+
+    <script>
+
+//MODELL
+
+        let age = '';
+        let text = '';
+
+
+//UPDATEVIEW
+
+        function input() {
+            const app = document.getElementById('app');
+            app.innerHTML = `
+                <h1>Velkommen til din værktøjskasse!</h1>
+                <p>Vælg din alder:</p>
+                <input type="number" placeholder="Sett din alder" onchange="age = this.value">
+                <button onclick="inputCheck()">Fortsæt</button>
+                <div>${text}</div>
+            `;
+        }
+
+//CONTROLLER
+
+        function inputCheck() {
+            const voksen = 18;
+            if (age >= voksen) {
+                text = `Du er voksen og kan kjøpe det du vil.`;
+            } else {
+                text = `Du er barn og kan ikke kjøpe det du ønsker.`;
+            }
+            input();
+        }
+//UPDATE
+        input();
+    </script>
+
+</body>
+</html>
